@@ -2,6 +2,9 @@
 
 
 ---
+
+
+
 ## 🗒️ Introduction to B2B Operations
 
 The B2B world operates differently from the B2C or C2C world. Businesses work with other businesses on credit. When a buyer business orders goods from the seller business, the seller business issues an invoice for the same. This invoice for the goods contains various information like the details of the goods purchased and when it should be paid. This is known in accounting terminology as “Accounts Receivable”
@@ -65,6 +68,11 @@ The B2B world operates differently from the B2C or C2C world. Businesses work wi
 
 ---
 
+##🖥️ DEMO
+
+<iframe src="https://drive.google.com/file/d/1ma4deNGn0aF4oW27GTSH0jssG5VfT-LU/preview" width="640" height="480" allow="autoplay"></iframe>
+
+---
 ## :iphone: Screenshots
 
 
