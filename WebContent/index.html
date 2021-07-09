@@ -1,10 +1,294 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Highradius</title>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
+
+
+
 <body>
-	Success!!!
+
+
+    <!--Add Modal-->
+
+    <div class="add-modal-bg">
+        <div class="add-modal">
+
+            <!--Add Modal Header-->
+            <div class="add-modal-header">
+                Add Invoice
+                <img class="add-modal-close" src="images/close.svg" height="20px">
+            </div>
+
+            <!--Add Modal Content-->
+            <div class="add-modal-content">
+                <div class="customer-name">
+                    <label for="name">Customer Name</label>
+                    <input type="modal-txt" id="add-customer-name" name="name" required>
+                </div>
+                <div class="due-date">
+                    <label for="due-date">Due Date </label>
+                    <input type="date" id="add-due-date" name="email" required>
+                </div>
+                <div class="customer-no">
+                    <label for="customer-no">Customer No. </label>
+                    <input type="modal-txt" id="add-customer-no" name="add-customer-no" required>
+                </div>
+                <div class="notes">
+                    <label for="notes">Notes </label>
+                    <input type="notes-txt" id="add-notes" name="notes">
+                </div>
+                <div class="invoice-no">
+                    <label for="invoice-no">Invoice No. </label>
+                    <input type="modal-txt" id="add-invoice-no" name="invoice-no" required>
+                </div>
+                
+                <div class="invoice-amt">
+                    <label for="invoice-amt">Invoice Amount </label>
+                    <input type="modal-txt" id="add-invoice-amt" name="invoice-amt" required>
+                </div>
+            </div>
+
+            <!--Add Modal Footer-->
+            <div class="add-modal-footer">
+                <button class="modal-add-btn" onclick="addInvoice()">
+                    <a href="#">Add</a>
+                </button>
+                <button class="modal-clear-btn" onclick="clearAddModal()">
+                    <a href="#">Clear</a>
+                </button>
+                <button class="modal-cancel-btn">
+                    <a href="#">Cancel</a>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!--Delete Modal-->
+    <div class="delete-modal-bg">
+        <div class="delete-modal">
+
+            <!--Delete Modal Header-->
+            <div class="delete-modal-header">
+                Delete Record(s)?
+                <img class="delete-modal-close" src="images/close.svg" height="20px">
+            </div>
+
+            <!--Delete Modal Content-->
+            <div class="delete-modal-content">
+                You'll lose your record(s) after this action. We can't recover
+                them once you delete.<br><br>
+                Are you sure you want to <text>permanently delete</text> them?
+            </div>
+
+
+            <!--Delete Modal Footer-->
+            <div class="delete-modal-footer">
+                <button class="modal-delete-btn" onClick="deleteInvoice()" >
+                    <a href="#">Delete</a>
+                </button>
+                <button class="delete-cancel-btn" onClick="cancelDelete()">
+                    <a href="#">Cancel</a>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Edit Modal-->
+    <div class="edit-modal-bg">
+        <div class="edit-modal">
+
+            <!--Edit Modal Header-->
+            <div class="edit-modal-header">
+                Edit Invoice
+                <img class="edit-modal-close" src="images/close.svg" height="20px">
+            </div>
+
+            <!--Edit Modal Content-->
+            <div class="edit-modal-content">
+                <div class="invoice-amt">
+                    <label for="invoice-amt">Invoice Amount </label>
+                    <input type="modal-txt" id="edit-invoice-amt" name="invoice-amt">
+                </div>
+                <div class="notes">
+                    <label for="notes">Notes </label>
+                    <input type="notes-txt" id="edit-notes" name="notes">
+                </div>
+            </div>
+
+
+            <!--Edit Modal Footer-->
+            <div class="edit-modal-footer">
+
+                <button class="modal-edit-btn" onClick="editInvoice()">
+                    <a href="#">Save</a>
+                </button>
+                <button class="modal-reset-btn" onClick="resetEditModal()">
+                    <a href="#">Reset</a>
+                </button>
+                
+                <button class="edit-cancel-btn">
+                    <a href="#">Cancel</a>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!--Pagination Buttons-->
+
+    <div class="next-btn" onclick="nextPage()">
+        <button>
+            >
+        </button>
+    </div>
+
+    <div class="prev-btn" onclick="prevPage()">
+        <button>
+            <
+        </button>
+    </div>
+
+
+
+    <!--Page Header-->
+
+    <div class="logo-flex">
+        <div class="logo-item">
+            <img src="images/Group 20399.png">
+        </div>
+        <div class="logo-item">
+            <img src="images/logo.svg">
+        </div>
+        <div class="invoice-list">
+            
+        </div>
+        <div class="invoice-list">
+            Invoice List
+        </div>
+    </div>
+
+
+
+    <!--Page Body Wrapped in Wrapper-->
+
+    
+    <div class="wrapper">
+
+        <!--Data Manipulation Buttons-->
+
+        <div class="button-container">
+            <div class="search-box">
+                <input class="search-txt" type="text" name="" id="search-inv" placeholder="Search by Invoice Number">
+                <a class="search-btn" href="#">
+                    <img src="images/search.svg" height="18px">
+                </a>
+            </div>
+            <div class="delete-box">
+                <button class="delete-txt" onClick="checkDelete()">
+                    <a class="delete-btn" href="#">
+                        <img src="images/delete.svg" height="12px" width="12px" style="padding-right: 5px;">
+                        Delete
+                    </a> 
+                </button>
+            </div>
+            <div class="edit-box">
+                <button class="edit-txt" onClick="checkEdit()">
+                    <a class="edit-btn" href="#">
+                        <img src="images/edit.svg" height="12px" style="padding-right: 5px;" >
+                        Edit
+                    </a>
+                </button>
+            </div>
+            <div class="add-box">
+                <button class="add-txt">
+                    <a class="add-btn" href="#">
+                        <img src="images/add.svg" height="12px" style="padding-right: 5px;" >
+                        Add
+                    </a>
+                </button>
+            </div>
+        </div>
+
+
+
+
+
+        <!--Table Div-->
+
+        <div class="table" id="table">
+            
+            <!--Table Header Div-->
+            <!-- 
+  
+           <div class="row-header">
+                <div class="cell" data-title="checkbox">
+                    <input type="checkbox" onclick="selectAllRow(this)" style="background-color: #273D49CC;">
+                </div>
+               <div class="cell" data-title="Customer Name">
+                   Customer Name
+               </div>
+               <div class="cell" data-title="Customer #">
+                   Customer #
+               </div>
+               <div class="cell" data-title="Invoice #">
+                   Invoice #
+               </div>
+               <div class="cell" data-title="Invoice Amount">
+                   Invoice Amount
+               </div>
+               <div class="cell" data-title="Due Date">
+                   Due Date
+               </div>
+               <div class="cell" data-title="Predicted Payment Date">
+                   Predicted Payment Date
+               </div>
+               <div class="cell" data-title="Notes">
+                   Notes
+               </div>
+           </div>
+            -->
+           
+<!--  
+           <div class="row">
+                <div class="cell" data-title="checkbox">
+                    <input type="checkbox" class="checkbox" onclick="selectedRow(this)" style="background-color: #273D49CC;">
+                    <label for="individual"></label>
+                </div>
+               <div class="cell" data-title="Customer Name">
+                   Andrea James
+               </div>
+               <div class="cell" data-title="Customer #">
+                   252353
+               </div>
+               <div class="cell" data-title="Invoice #">
+                   734567891234
+               </div>
+               <div class="cell" data-title="Invoice Amount">
+                   122.87K
+               </div>
+               <div class="cell" data-title="Due Date">
+                   23-Jan-2021
+               </div>
+               <div class="cell" data-title="Predicted Payment Date">
+                   --
+               </div>
+               <div class="cell" data-title="Notes">
+                   Lorem Ipsum Dolor Sit...
+               </div>
+           </div>
+             
+-->
+        </div>
+    </div>
 </body>
+
+<script src="index.js"></script>
 </html>
