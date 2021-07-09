@@ -66,11 +66,7 @@ The B2B world operates differently from the B2C or C2C world. Businesses work wi
 - **SQL Yog**
 - **Jupyter Notebook**
 
----
 
-##🖥️ DEMO
-
-<iframe src="https://drive.google.com/file/d/1ma4deNGn0aF4oW27GTSH0jssG5VfT-LU/preview" width="640" height="480" allow="autoplay"></iframe>
 
 ---
 ## :iphone: Screenshots
