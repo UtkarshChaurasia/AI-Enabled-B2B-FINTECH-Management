@@ -1,0 +1,835 @@
+/*.flex-container{
+    display: flex;
+    justify-content: center;
+    width: 75%;
+    height: auto;
+}
+
+.flex-item{
+top: 513px;
+left: 1822px;
+
+background: #14AFF1 0% 0% no-repeat padding-box;
+box-shadow: 0px 2px 6px #00000069;
+opacity: 1;
+}*/
+body{
+    background: transparent radial-gradient(closest-side at 50% 50%, #58687E 0%, #39495E 100%) 0% 0%;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    /*font: normal normal normal 20px/24px Ubuntu;*/
+    letter-spacing: 0.29px;
+}
+
+.next-btn{
+    display: flex;
+    float: right;
+    position: fixed;
+    top: 52%;
+    right: 2.2%;
+    
+}
+.next-btn button{
+    background: #14AFF1;
+    border: none;
+    font-weight: 2px;
+    color: white;
+    font-size: 25px;
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    box-shadow: 0px 2px 6px #00000069;
+}
+
+.prev-btn{
+    display: flex;
+    float: right;
+    position: fixed;
+    top: 52%;
+    left: 1.4%;
+    
+}
+.prev-btn button{
+    background: #39495E;
+    border: none;
+    font-weight: 2px;
+    color: #97A1A9;
+    font-size: 25px;
+    border-radius: 100%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    box-shadow: 0px 2px 6px #00000069;
+    
+}
+
+
+
+/*Add Modal*/
+
+.add-modal-bg{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s;
+}
+
+.add-modal-active{
+    visibility: visible;
+    opacity: 1;
+}
+
+.add-modal{
+    background-color: #2A3E4C;
+    width: 57%;
+    height: 52%;
+    align-items: left;
+    flex-direction: column;
+    border-radius: 8px;
+}
+
+
+/*Add Modal Header*/
+
+.add-modal-header{
+    color:#eceeef;
+    border-bottom: #243441 2px solid;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 22px;
+    letter-spacing: 0.19px;
+
+}
+
+.add-modal-close{
+    float: right;
+    cursor: pointer;
+}
+
+
+/*Add Modal Body*/
+
+
+.add-modal-content{
+    padding: 20px 10px 20px 25px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 50px;
+}
+
+.add-modal-content input{
+    color: white;
+    letter-spacing: 1px;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-left: 10px;
+}
+
+
+.add-modal label{
+    color:#97A1A9;
+    letter-spacing: 0.19px;
+    padding-right: 30px;
+}
+
+input[type="modal-txt"]{
+    background: #283a46;
+    border: 1.5px solid #31556a;
+    border-radius: 8px;
+    width: 220px;
+    height: 34px;
+    outline: none;
+
+}
+
+.customer-no{
+    margin-top: 20px;
+}
+
+.customer-no input{
+    margin-left: 17px;
+}
+
+
+.invoice-no{
+    margin-top: 20px;
+}
+
+.invoice-no input{
+    margin-left: 35px;
+}
+
+.invoice-amt{
+    margin-top: 20px;
+}
+
+.invoice-amt input{
+    margin-left: 3px;
+}
+
+.due-date input{
+    margin-left: 13px;
+    background: #283a46;
+    border: 1.5px solid #31556a;
+    border-radius: 8px;
+    width: 220px;
+    height: 34px;
+    outline: none;
+}
+
+
+.notes{
+    margin-top: 20px;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    grid-row-end: 6;
+    display: flex;
+}
+
+.notes input{
+    margin-left: 42px;
+}
+
+input[type="notes-txt"]{
+    background: #283a46;
+    border: 1.5px solid #31556a;
+    border-radius: 8px;
+    width: 220px;
+    height: 148px;
+    outline: none;
+
+}
+
+.notes label{
+    float: top;
+}
+
+/*Add Modal Footer*/
+
+
+.add-modal-footer{
+    margin-top: 0px;
+    border-top: #243441 2px solid;
+    padding-top: 15px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+.modal-add-btn{
+    float: right;
+    background:#14AFF1;
+    border-radius: 10px;
+    width: 72px;
+    height: 38px;
+    border: none;
+    color: #eceeef;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+
+.modal-add-btn a{
+    color: #eceeef;
+}
+
+.modal-clear-btn{
+    float: right;
+    background:none;
+    border: 1px solid #14AFF1;
+    border-radius: 10px;
+    width: 72px;
+    height: 38px;
+    margin-right: 20px;
+    padding-bottom: 5px;
+    color: #eceeef;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+}
+
+.modal-clear-btn a{
+    color: #eceeef;
+}
+
+.modal-cancel-btn{
+    float: left;
+    background:none;
+    width: 72px;
+    height: 38px;
+    margin-right: 20px;
+    padding-bottom: 5px;
+    border: none;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+}
+
+.modal-cancel-btn a{
+    color: #14AFF1;
+}
+
+
+
+
+
+
+
+
+/*Delete Modal*/
+
+.delete-modal-bg{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s;
+}
+
+.delete-modal-active{
+    visibility: visible;
+    opacity: 1;
+}
+
+.delete-modal{
+    background-color: #2A3E4C;
+    width: 31%;
+    height: 35%;
+    align-items: left;
+    flex-direction: column;
+    border-radius: 8px;
+}
+
+
+
+/*Delete Modal Header*/
+
+.delete-modal-header{
+    color:#eceeef;
+    border-bottom: #243441 2px solid;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 22px;
+    letter-spacing: 0.19px;
+
+}
+
+.delete-modal-close{
+    float: right;
+    cursor: pointer;
+}
+
+
+/*Delete Modal Body*/
+
+.delete-modal-content{
+    padding: 20px 10px 20px 25px;
+    color:#C0C6CA;
+
+}
+
+.delete-modal-content text{
+    color:#FF5E5E;
+}
+
+/*Delete Modal Footer*/
+
+.delete-modal-footer{
+    margin-top: 0px;
+    border-top: #243441 2px solid;
+    padding-top: 15px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+.modal-delete-btn{
+    float: right;
+    background:#14AFF1;
+    border-radius: 10px;
+    width: 72px;
+    height: 38px;
+    border: none;
+    color: #eceeef;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+
+.delete-cancel-btn{
+    float: right;
+    background:none;
+    border: 1px solid #14AFF1;
+    border-radius: 10px;
+    width: 72px;
+    height: 38px;
+    margin-right: 20px;
+    padding-bottom: 5px;
+    color: #eceeef;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+}
+
+.delete-cancel-btn a{
+    color: #eceeef;
+}
+
+
+
+
+
+
+
+
+/*Edit Modal*/
+
+.edit-modal-bg{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.5s, opacity 0.5s;
+}
+
+.edit-modal-active{
+    visibility: visible;
+    opacity: 1;
+}
+
+.edit-modal{
+    background-color: #2A3E4C;
+    width: 28%;
+    height: 54%;
+    align-items: left;
+    flex-direction: column;
+    border-radius: 8px;
+}
+
+
+
+/*Edit Modal Header*/
+
+.edit-modal-header{
+    color:#eceeef;
+    border-bottom: #243441 2px solid;
+    padding-top: 18px;
+    padding-bottom: 16px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 22px;
+    letter-spacing: 0.19px;
+
+}
+
+.edit-modal-close{
+    float: right;
+    cursor: pointer;
+}
+
+
+/*Edit Modal Body*/
+
+.edit-modal-content{
+    padding: 20px 10px 20px 25px;
+    color:#C0C6CA;
+}
+
+.edit-modal-content label{
+    color:#97A1A9;
+}
+
+.edit-modal-content input{
+    color: white;
+    letter-spacing: 1px;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-left: 10px;
+}
+
+#edit-invoice-amt{
+    margin-left:24px;
+}
+
+#edit-notes{
+    margin-left: 100px;
+}
+
+/*Edit Modal Footer*/
+
+.modal-reset-btn{
+    float: right;
+    background:none;
+    border: 1px solid #14AFF1;
+    border-radius: 10px;
+    width: 72px;
+    height: 38px;
+    margin-right: 20px;
+    padding-bottom: 5px;
+    color: #eceeef;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+}
+
+.modal-reset-btn a{
+    color: #eceeef;
+}
+
+
+.edit-modal-footer{
+    margin-top: 0px;
+    border-top: #243441 2px solid;
+    padding-top: 15px;
+    padding-bottom: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+.modal-edit-btn{
+    float: right;
+    background:#14AFF1;
+    border-radius: 10px;
+    width: 72px;
+    height: 38px;
+    border: none;
+    color: #eceeef;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+
+.modal-edit-btn a{
+    color: #eceeef;
+}
+
+.edit-cancel-btn{
+    float: left;
+    background:none;
+    border: none;
+    width: 72px;
+    height: 38px;
+    margin-right: 20px;
+    padding-bottom: 5px;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+}
+
+.edit-cancel-btn a{
+    color:#14AFF1;
+    
+}
+
+
+
+
+
+
+
+
+
+.logo-flex{
+  
+    display: grid;
+    grid-template-columns: auto auto auto;
+   
+}
+ .logo-item{
+     width: 500px;
+
+ }
+
+ .invoice-list{
+     margin-top: 25px ;
+     font-size: 28px;
+     color: rgb(255 255 255);
+     margin-left: 10px;
+ }
+ 
+ 
+
+.wrapper{
+    margin-right: 30px;
+    margin-left: 10px;
+      
+    margin-top: 20px;
+    margin-bottom: 40px;
+    background-color: #273D49CC;
+    border-radius: 10px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    
+}
+
+.table{
+}
+
+
+
+.row{
+    display: table-row;
+    color: rgb(234 232 232);
+    font-size: 16px;
+    letter-spacing: 0.5;
+}
+.row-selector{
+    display: table-row;
+    color: red;
+    font-size: 16px;
+    letter-spacing: 0.5;
+}
+
+.row:nth-of-type(even){
+    background: #283A46 0% 0% no-repeat padding-box;
+}
+
+.row-header{
+    color: #97A1A9;
+    font-family:sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    text-align: right;
+    font-weight: normal;
+    margin-bottom: 10px;
+    border-bottom: solid 0.21px #303c43;
+}
+
+.cell{
+    padding: 8px;
+    display: table-cell;
+}
+
+
+.row-button{
+    padding-bottom: 30px;
+}
+
+div[data-title="checkbox"]{
+    width: 10px;
+    padding-right: 30px;
+    background-color: auto;
+
+}
+
+div[data-title="Customer Name"]{
+    width: 150px;
+    text-align: left;
+    
+}
+div[data-title="Customer #"]{
+    width: 100px;
+    text-align: right;
+    
+}
+div[data-title="Invoice #"]{
+    width: 170px;
+    text-align: right;
+    
+}
+div[data-title="Invoice Amount"]{
+    width: 150px;
+    text-align: right;
+    padding-left: 10px;
+    
+    
+}
+div[data-title="Due Date"]{
+    width: 190px;
+    text-align: right;
+   
+    
+}
+
+div[data-title="Predicted Payment Date"]{
+    width: 200px;
+    text-align: right;
+   
+    
+}
+
+div[data-title="Notes"]{
+    width: 200px;
+    text-align: left;
+    padding-left: 100px;
+    
+}
+
+input[type=checkbox] + label:before {
+    
+    background-color: red;
+    border-radius: 0.2em;
+}
+/*
+.search-box{
+    height: 40px;
+    text-align: right;
+    
+    
+}
+
+.search-btn{
+    float: right;
+    
+}
+.search-txt{
+    background: #283A46;
+    border: 1px solid #356680;
+    border-radius: 5px;
+    color: white;
+    outline: none;
+   
+    padding: 0;
+    
+    line-height: 20px;
+    width: 220px;
+}
+*/
+
+.button-container{
+    padding-top: 20px;
+    height: 30px;
+    text-align: right;
+    padding-right:10px ;
+    padding-bottom: 20px;
+
+    
+}
+
+
+.search-box{
+    float: right;
+    background: #283A46;
+    height: 14px;
+    border-radius: 10px;
+    padding: 10px;
+    border: solid #356680 1px;
+    
+}
+
+.search-txt{
+    background: none;
+    border: none;
+    color: #97A1A9;
+    outline: none;
+    float: left;
+    line-height: 15px;
+    width: 210px;
+    
+}
+
+.search-btn{
+    background: #283A46;
+}
+
+
+
+::placeholder{
+    color: #97A1A9;
+}
+
+.delete-box{
+    float: right;
+    padding-right: 5px;
+}
+
+.delete-txt{
+    margin-right: 10px;
+    background: none;
+    border-radius: 10px;
+    padding: 0px 10px;
+    font-size: 15px;
+    border: 1px solid #97A1A9;
+    height: 35px;
+}
+
+.delete-btn{
+    color: #97A1A9;
+}
+
+
+
+
+.edit-box{
+    float: right;
+    padding-right: 5px;
+}
+
+.edit-txt{
+    margin-right: 10px;
+    background: none;
+    border-radius: 10px;
+    padding-bottom: px;
+    font-size: 15px;
+    border: 1px solid #97A1A9;
+    height: 35px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+.edit-btn-enabled{
+    margin-right: 10px;
+    background: none;
+    border-radius: 10px;
+    padding-bottom: px;
+    font-size: 15px;
+    border: 1px solid #14AFF1;
+    height: 35px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+.edit-btn{
+    color: #97A1A9;
+}
+
+.add-box{
+    float: right;
+    padding-right: 5px;
+}
+
+.add-txt{
+    margin-right: 10px;
+    background: none;
+    border-radius: 10px;
+    padding-bottom: px;
+    font-size: 15px;
+    border: 1px solid #14AFF1;
+    height: 35px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.add-btn{
+    color: #FFFFFF;
+}
+
+a{
+    padding-right: 4px;
+    text-decoration: none;
+    
+}
