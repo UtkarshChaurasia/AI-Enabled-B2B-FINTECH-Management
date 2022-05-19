@@ -6,9 +6,7 @@ import java.sql.SQLException;
 public class DBConnection {
 	public static Connection createConnect() {
 		Connection con = null;
-		String url = "jdbc:mysql://localhost:3306/hrcdb";
-		String uname = "root";
-		String pass = "ABHiNAWg@v";
+		String url = "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=USD&days=30&interval=2";
 		
 		try {
 			try {
